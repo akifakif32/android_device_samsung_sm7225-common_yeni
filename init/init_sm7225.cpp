@@ -13,9 +13,6 @@
 #include "init_sm7225.h"
 
 #define MODEL_NAME_LEN 5
-#define BUILD_NAME_LEN 8
-#define CODENAME_LEN   9
-
 
 static void property_override(char const prop[], char const value[]) {
     prop_info *pi;
@@ -39,7 +36,6 @@ void vendor_load_properties()
 {
     const std::string bootloader = android::base::GetProperty("ro.bootloader", "");
     const std::string bl_model = bootloader.substr(0, MODEL_NAME_LEN);
-    const std::string bl_build = bootloader.substr(MODEL_NAME_LEN);
 
     std::string model;
     std::string device;
@@ -56,11 +52,11 @@ void vendor_load_properties()
     }
 
     if (device.size() == 0) {
-        LOG(ERROR) << "Could not detect device, forcing a42xq";
-        device = "a42xq";
+        LOG(ERROR) << "Could not detect device, forcing m23xq";
+        device = "m23xq";
     }
 
-    name = device + "nsxx";
+    name = device + "xx";
 
     LOG(INFO) << "Found bootloader: %s", bootloader.c_str();
     LOG(INFO) << "Setting ro.product.model: %s", model.c_str();
