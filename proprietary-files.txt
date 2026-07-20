@@ -81,6 +81,13 @@ vendor/lib/libdrc.so
 vendor/lib/libspkrprot.so
 vendor/lib/hw/audio.primary.lito.so
 vendor/lib/spatializer-aidl-V1-cpp.so
+vendor/lib/libwebrtc_audio_preprocessing.so
+vendor/lib64/libwebrtc_audio_preprocessing.so
+vendor/lib/lib_SoundAlive_3DPosition_ver202.so
+vendor/lib64/lib_SoundAlive_3DPosition_ver202.so
+vendor/lib/libprofileparamstorage.so
+vendor/lib64/libprofileparamstorage.so
+vendor/lib64/spatializer-aidl-V1-cpp.so
 
 # Audio (Soundtrigger)
 vendor/lib/libaudio_soundtrigger.so
@@ -149,6 +156,8 @@ vendor/lib64/soundfx/libqcbassboost.so
 # Audio (Dolby)
 vendor/lib/soundfx/libswdap.so
 vendor/lib64/soundfx/libswdap.so
+vendor/lib/libspatializerparamstorage.so
+vendor/lib64/libspatializerparamstorage.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
@@ -288,7 +297,8 @@ vendor/lib64/libofflinelog.so
 vendor/lib64/libbitmlengine.so
 vendor/lib64/libcamxfacialfeatures.so
 vendor/lib64/librmsclib1.so
-
+vendor/lib64/libDeviceInfoProvider.so
+vendor/lib64/libHDRVerifier_v1.camera.samsung.so
 
 # Charger
 vendor/bin/hvdcp_opti
