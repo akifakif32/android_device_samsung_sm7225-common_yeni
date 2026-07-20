@@ -287,6 +287,8 @@ vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
 vendor/lib64/libofflinelog.so
 vendor/lib64/libbitmlengine.so
 vendor/lib64/libcamxfacialfeatures.so
+vendor/lib64/librmsclib1.so
+
 
 # Charger
 vendor/bin/hvdcp_opti
