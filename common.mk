@@ -33,6 +33,9 @@ PRODUCT_COMPRESSED_APEX := false
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 30
 
+PRODUCT_PACKAGES += \
+    com.android.vndk.v30
+
 # No A/B
 AB_OTA_UPDATER := false
 
@@ -255,6 +258,11 @@ PRODUCT_PACKAGES += \
     libkeymaster4_1support.vendor
 
 $(call soong_config_set,samsungVars,target_keymaster4_library,//vendor/samsung/sm7225-common:libskeymaster4device)
+
+# Light
+PRODUCT_PACKAGES += \
+    android.hardware.light-service.samsung \
+    lights.qcom
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
