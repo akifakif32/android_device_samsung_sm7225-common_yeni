@@ -754,9 +754,6 @@ vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # RIL
-vendor/etc/vintf/manifest/vendor.samsung.hardware.radio.exclude.qcom.xml
-vendor/etc/vintf/manifest/vendor.samsung.hardware.radio_manifest_2_30.xml
-vendor/etc/vintf/manifest/vendor.samsung.hardware.sehradio_manifest_2_30.xml
 product/etc/permissions/UimService.xml|cb32679d345f98d5b8ec175c5c3429a2e3718882
 product/framework/uimservicelibrary.jar|f96553f87efa437cd31c508810e7fe1e168284cf
 vendor/bin/netmgrd
