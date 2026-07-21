@@ -795,7 +795,6 @@ vendor/etc/locale/plmn_delta_zh-rHK.bin
 vendor/etc/plmn_delta_attaio.bin
 vendor/etc/sec_config_oem
 vendor/etc/pdpcnt-conf.xml
-vendor/lib64/librilutils.so
 vendor/lib64/libengmode15.so
 vendor/lib64/libengmode2lite.so
 vendor/lib64/libengmode_tlc.so
