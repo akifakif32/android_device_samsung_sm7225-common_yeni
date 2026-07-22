@@ -33,6 +33,9 @@ PRODUCT_COMPRESSED_APEX := false
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 30
 
+PRODUCT_PACKAGES += \
+    com.android.vndk.v30
+
 # No A/B
 AB_OTA_UPDATER := false
 
@@ -256,9 +259,10 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,samsungVars,target_keymaster4_library,//vendor/samsung/sm7225-common:libskeymaster4device)
 
-# LiveDisplay
+# Light
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay-service.samsung-qcom
+    android.hardware.light-service.samsung \
+    lights.qcom
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -287,7 +291,6 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-service.samsung \
     com.android.nfc_extras \
     Tag
 
@@ -504,6 +507,9 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 # UDFPS
 $(call soong_config_set,samsungUdfpsVars,udfps_zorder,0x20000000u)
 $(call soong_config_set,surfaceflinger,udfps_lib,//hardware/samsung/fingerprint:libudfps_extension.samsung)
+
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
 
 # Inherit proprietary blobs
 $(call inherit-product, vendor/samsung/sm7225-common/sm7225-common-vendor.mk)

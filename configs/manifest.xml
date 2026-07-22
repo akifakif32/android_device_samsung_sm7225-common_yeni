@@ -438,34 +438,25 @@
         <transport>hwbinder</transport>
         <fqname>@1.0::IQspmhal/default</fqname>
     </hal>
-    
-    <hal format="aidl">
-        <name>vendor.lineage.livedisplay</name>
-        <transport>hwbinder</transport>
-        <version>1</version>
-        <interface>
-            <name>IAdaptiveBacklight</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IDisplayColorCalibration</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IDisplayModes</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>ISunlightEnhancement</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl">
         <name>vendor.nxp.hardware.nfc</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
         <interface>
             <name>INqNfc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.qteeconnector</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAppConnector</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IGPAppConnector</name>
             <instance>default</instance>
         </interface>
     </hal>
