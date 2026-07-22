@@ -1,4 +1,6 @@
-# Copyright (c) 2022, The Linux Foundation. All rights reserved.
+#! /vendor/bin/sh
+#
+# Copyright (c) 2021 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -24,7 +26,18 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
 
-key 143    WAKEUP
-key 172    WAKEUP
-key 116    WAKEUP
+soc_id=`cat /sys/devices/soc0/soc_id` 2> /dev/null
+
+# Store soc_id in ro.vendor.qti.soc_id
+setprop ro.vendor.qti.soc_id $soc_id
+
+if [ "$soc_id" -eq 434 ]; then
+    setprop ro.vendor.qti.soc_model SM6350
+elif [ "$soc_id" -eq 459 ]; then
+    setprop ro.vendor.qti.soc_model SM7225
+elif [ "$soc_id" -eq 400 ] || [ "$soc_id" -eq 440 ]; then
+    setprop ro.vendor.qti.soc_model SM7250
+fi
+
