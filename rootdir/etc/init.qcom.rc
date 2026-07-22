@@ -80,10 +80,6 @@ on init
     # Charger
     chown system system /sys/class/power_supply/battery/batt_slate_mode
 
-on fs
-    chmod 0660 /sys/class/camera/flash/rear_flash
-    chown camera camera /sys/class/camera/flash/rear_flash
-
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
@@ -347,6 +343,9 @@ on post-fs-data
     # Create directory for modem_config
     mkdir /data/vendor/modem_config 0570 radio root
 
+    # Start Perf HAL
+    setprop vendor.powerhal.init 1
+
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown root system /persist
@@ -534,12 +533,6 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/wcd_cpe0/fw_name
     #Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
-
-on property:persist.vendor.radio.atfwd.start=false
-    stop vendor.atfwd
-
-on property:vendor.radio.atfwd.start=false
-    stop vendor.atfwd
 
 # corefile limit
 on property:persist.debug.trace=1
@@ -794,11 +787,6 @@ service qvop-daemon /vendor/bin/qvop-daemon
     class late_start
     user system
     group system drmrpc
-
-service vendor.atfwd /vendor/bin/ATFWD-daemon
-    class late_start
-    user system
-    group system radio
 
 service hostapd_fst /vendor/bin/hw/hostapd -dd -g /data/vendor/wifi/hostapd/global
     class main
