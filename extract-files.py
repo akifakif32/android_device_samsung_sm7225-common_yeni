@@ -33,7 +33,11 @@ lib_fixups: lib_fixups_user_type = {
 
 blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libsec-ril.so': blob_fixup()
-        .binary_regex_replace(b'ril.dds.call.ongoing', b'vendor.calls.ongoing'),
+        .binary_regex_replace(b'ril.dds.call.ongoing', b'vendor.calls.slot_id')
+        .sig_replace(
+            '60 0e 40 f9 82 0c 80 52 24 00 80 52 e1 03 15 aa 08 00 40 f9 e3 03 14 aa',
+            '60 0e 40 f9 82 0c 80 52 24 00 80 52 e1 03 15 aa 08 00 40 f9 03 00 80 d2'
+        ),
     (
         'vendor/lib64/hw/gatekeeper.mdfpp.so',
         'vendor/lib64/libskeymaster4device.so',
@@ -46,6 +50,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/unihal_main@2.1.so',
         'vendor/lib64/libscaler_hw.unifunc.so',
         'vendor/lib/libscaler_hw.unifunc.so',
+    ('vendor/lib64/nfc_nci_nxpsn.so'): blob_fixup()
+        .add_needed('libbase_shim.so'),
     ): blob_fixup()
         .add_needed('libui_shim.so'),
     (
@@ -58,6 +64,8 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'ro.vendor.wifi.sap.interface', b'ru.vnedor.wiff.sep.iuterface'),
     'vendor/lib64/libdpps.so': blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    ('vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
+        .sig_replace('9A 0A 00 94', '1F 20 03 D5'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
