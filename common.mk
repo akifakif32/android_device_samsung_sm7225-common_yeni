@@ -264,10 +264,6 @@ PRODUCT_PACKAGES += \
     android.hardware.light-service.samsung \
     lights.qcom
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay-service.samsung-qcom
-
 # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
