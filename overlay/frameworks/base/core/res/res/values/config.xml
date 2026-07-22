@@ -208,7 +208,6 @@
     <string-array translatable="false" name="radioAttributes">
         <item>1,1</item>
         <item>0,1</item>
-        <item>7,1</item>
     </string-array>
 
     <!-- Flag indicating whether we should enable the automatic brightness.
