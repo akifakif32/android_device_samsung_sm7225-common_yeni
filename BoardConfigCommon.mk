@@ -151,11 +151,6 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
 
-# FOD
-ifeq ($(TARGET_HAS_UDFPS),true)
-TARGET_USES_FOD_ZPOS := true
-endif
-
 # HIDL manifests
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/configs/manifest.xml
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/configs/compatibility_matrix.xml
