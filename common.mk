@@ -403,7 +403,8 @@ PRODUCT_PACKAGES += \
     librilutils \
     librmnetctl \
     secril_config_svc \
-    libjsoncpp.vendor
+    libjsoncpp.vendor \
+    sehradiomanager
 
 # Sensors
 PRODUCT_PACKAGES += \

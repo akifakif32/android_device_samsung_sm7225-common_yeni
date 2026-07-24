@@ -35,3 +35,5 @@ allow hal_bluetooth_default hwservicemanager_prop:file { read getattr map open }
 
 binder_call(hal_bluetooth_default, gpuservice)
 allow hal_bluetooth_default gpuservice:fd use;
+
+allow hal_bluetooth_default hal_bluetooth_hwservice:hwservice_manager { add find };
