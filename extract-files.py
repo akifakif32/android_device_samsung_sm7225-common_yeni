@@ -46,6 +46,7 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/unihal_main@2.1.so',
         'vendor/lib64/libscaler_hw.unifunc.so',
         'vendor/lib/libscaler_hw.unifunc.so',
+        'vendor/lib64/unihal_main@2.15.so',
     ): blob_fixup()
         .add_needed('libui_shim.so'),
     (
@@ -58,6 +59,8 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'ro.vendor.wifi.sap.interface', b'ru.vnedor.wiff.sep.iuterface'),
     'vendor/lib64/libdpps.so': blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    ('vendor/lib64/nfc_nci_nxpsn.so'): blob_fixup()
+        .add_needed('libbase_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
