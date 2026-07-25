@@ -1,3 +1,5 @@
+add_hwservice(hal_audio_default, hal_bluetooth_a2dp_hwservice)
+
 allow hal_audio_default audio_efs_file:file { read open };
 allow hal_audio_default audio_efs_file:dir search;
 
@@ -5,6 +7,13 @@ allow hal_audio_default imei_efs_file:dir search;
 allow hal_audio_default imei_efs_file:file { read open getattr };
 
 allow hal_audio_default efs_file:dir search;
+
+# TAS256X sysfs
+allow hal_audio_default sysfs_audio_writable:file rw_file_perms;
+allow hal_audio_default sysfs_audio_writable:dir search;
+
+# ro.multisim*
+dontaudit hal_audio_default { default_prop radio_prop }:file { getattr map open read };
 
 get_prop(hal_audio_default, vendor_radio_prop)
 get_prop(hal_audio_default, vendor_samsung_audio_prop)
